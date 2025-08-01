@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Imóvel - Elisandra Miellis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link para o arquivo CSS externo (o mesmo style.css) -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones Font Awesome para as redes sociais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header id="mainHeader">
+        <!-- Logo da Corretora agora é um link para a página inicial -->
+        <a href="index.html">
+            <img src="logo.png" alt="Elisandra Miellis - Imóveis de Alto Padrão" class="header-logo">
+        </a>
+        <nav class="menu-desktop">
+            <a href="index.html#home">Início</a>
+            <a href="index.html#sobre">Sobre Mim</a>
+            <a href="index.html#imoveis">Propriedades</a>
+            <a href="index.html#depoimentos">Depoimentos</a>
+            <a href="index.html#contato">Contato</a>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </header>
+
+    <main>
+        <section class="hero-small">
+            <div class="hero-content">
+                <h1 id="property-title"></h1>
+                <p id="property-subtitle"></p>
+            </div>
+        </section>
+
+        <section id="property-details" class="container">
+            <div class="property-detail-card">
+                <div class="image-gallery">
+                    <!-- Imagem principal -->
+                    <img src="" alt="Imagem Principal do Imóvel" id="main-property-image" onclick="openLightbox()">
+                    <!-- Setas de navegação -->
+                    <div class="gallery-arrow left-arrow" onclick="navigateImages(-1)">&#10094;</div>
+                    <div class="gallery-arrow right-arrow" onclick="navigateImages(1)">&#10095;</div>
+                    <!-- Miniaturas da galeria -->
+                    <div class="thumbnails" id="image-thumbnails">
+                        <!-- As miniaturas serão geradas dinamicamente aqui -->
+                    </div>
+                </div>
+
+                <div class="property-content">
+                    <div class="property-header-details">
+                        <div class="property-title-price">
+                            <h2 id="property-name"></h2>
+                            <span id="property-price" class="price"></span>
+                        </div>
+                        <p id="property-location"></p>
+                    </div>
+
+                    <div class="property-info-grid">
+                        <div class="property-info-item">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <span id="property-area"></span>
+                        </div>
+                        <div class="property-info-item">
+                            <i class="fas fa-bed"></i>
+                            <span id="property-bedrooms"></span>
+                        </div>
+                        <div class="property-info-item">
+                            <i class="fas fa-bath"></i>
+                            <span id="property-bathrooms"></span>
+                        </div>
+                        <div class="property-info-item">
+                            <i class="fas fa-car"></i>
+                            <span id="property-garage"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-description">
+                        <h3>Detalhes do Imóvel</h3>
+                        <p id="property-description"></p>
+                        <ul id="property-features">
+                            <!-- Os recursos serão adicionados dinamicamente aqui -->
+                        </ul>
+                    </div>
+
+                    <div class="contact-card contact-form-card">
+                        <h3>Fale com Elisandra Miellis</h3>
+                        <p>Entre em contato para agendar uma visita ou tirar suas dúvidas sobre este imóvel.</p>
+                        <form id="contact-form">
+                            <label for="name">Nome:</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="message">Mensagem:</label>
+                            <textarea id="message" name="message" required></textarea>
+                            <button type="submit" class="btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox para a galeria de imagens -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content-wrapper">
+            <img class="lightbox-image" id="lightbox-image">
+            <div class="lightbox-arrow lightbox-prev">&#10094;</div>
+            <div class="lightbox-arrow lightbox-next">&#10095;</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <img src="logo.png" alt="Elisandra Miellis - Imóveis de Alto Padrão" class="footer-logo">
+            <p>Conectando você ao seu próximo sonho.</p>
+            <div class="social-links">
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2024 Elisandra Miellis. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="" class="whatsapp-float" target="_blank" title="Fale comigo no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script>
+        // Dados dos imóveis em um objeto JavaScript
+        const propertiesData = {
+            "fazenda-sitio": {
+                title: "fazenda-sitio",
+                subtitle: "Oportunidade única para viver com luxo e privacidade.",
+                name: "Fazenda-Sítio em Águas Claras, Viamão",
+                location: "Viamão, Rio Grande do Sul",
+                price: "R$ 3.000.000",
+                area: "30.000m²",
+                bedrooms: "5 dormitórios",
+                bathrooms: "4 banheiros",
+                garage: "8 vagas",
+                description: "Espetacular fazenda-sítio com uma extensa área verde, lago privativo e infraestrutura completa para lazer e moradia de alto padrão. A casa principal conta com espaços amplos, acabamentos de primeira linha e uma vista deslumbrante. Ideal para quem busca tranquilidade, segurança e contato com a natureza sem abrir mão do conforto e da sofisticação. A propriedade possui casa de caseiro, piscina, churrasqueira e amplos salões de festa.",
+                features: [
+                    "Área total: 30.000 m²",
+                    "Casa principal com 5 dormitórios (2 suítes)",
+                    "Sala de estar com lareira",
+                    "Cozinha gourmet",
+                    "Piscina adulto e infantil",
+                    "Lago privativo com deck",
+                    "Churrasqueira e salão de festas",
+                    "Casa de caseiro",
+                    "Amplo pomar e horta",
+                    "Garagem coberta para 4 carros e estacionamento externo para mais 4"
+                ],
+                images: [
+                    "imagem_2025-07-31_102002408.jpg-6cdba051-e435-4e32-bde3-1e103ab55e10",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Fazenda-Sitio+Interior+1",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Fazenda-Sitio+Interior+2",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Fazenda-Sitio+Exterior"
+                ]
+            },
+            "Casa com 4 suítes no Condomínio Buena Vista": {
+                title: "Casa com 4 suítes no Condomínio Buena Vista",
+                subtitle: "Conforto e sofisticação em um dos melhores condomínios de Viamão.",
+                name: "Casa no Condomínio Buena Vista",
+                location: "Viamão, Rio Grande do Sul",
+                price: "R$ 1.090.000",
+                area: "200m²",
+                bedrooms: "4 dormitórios (4 suítes)",
+                bathrooms: "5 banheiros",
+                garage: "4 vagas",
+                description: "Casa de alto padrão com 4 suítes, living 2 ambientes com lareira, cozinha americana, espaço gourmet com churrasqueira e uma vista permanente para a área de preservação. O condomínio oferece segurança 24h, piscina, quadras esportivas e salão de festas. A localização é privilegiada, próxima à natureza e com fácil acesso a Porto Alegre.",
+                features: [
+                    "Área construída: 200m²",
+                    "Terreno: 300m²",
+                    "4 suítes (uma no térreo)",
+                    "Acabamento de alto padrão",
+                    "Living 2 ambientes com lareira",
+                    "Cozinha americana",
+                    "Espaço gourmet com churrasqueira",
+                    "Vista permanente para área verde",
+                    "Piscina e salão de festas no condomínio",
+                    "Segurança 24h"
+                ],
+                images: [
+                    "imagem_2025-08-01_100614620.jpg-1527bcc6-e93a-43c9-9a3f-444847b9cfee",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Buena+Vista+Interior+1",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Buena+Vista+Interior+2",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Buena+Vista+Exterior"
+                ]
+            },
+            "condominio-vivare": {
+                title: "Belíssima Casa no Condomínio Vivare",
+                subtitle: "Sua nova vida começa aqui, em um ambiente de paz e tranquilidade.",
+                name: "Casa no Condomínio Vivare em Viamão",
+                location: "Viamão, Rio Grande do Sul",
+                price: "R$ 590.000",
+                area: "150m²",
+                bedrooms: "3 dormitórios",
+                bathrooms: "3 banheiros",
+                garage: "2 vagas",
+                description: "Belíssima casa de alto padrão com 3 dormitórios, sendo 1 suíte. Varandas com vista panorâmica, sala de estar com pé direito duplo e cozinha integrada. A propriedade oferece um ambiente aconchegante e moderno, ideal para quem busca qualidade de vida. O condomínio oferece infraestrutura completa com piscina, salão de festas, quadra de tênis e segurança 24h.",
+                features: [
+                    "Área construída: 150m²",
+                    "Terreno: 250m²",
+                    "3 dormitórios (1 suíte)",
+                    "Varandas com vista",
+                    "Sala de estar com pé direito duplo",
+                    "Cozinha integrada",
+                    "Piscina e salão de festas no condomínio",
+                    "Segurança 24h"
+                ],
+                images: [
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Condominio+Vivare+Foto+1",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Condominio+Vivare+Foto+2",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Condominio+Vivare+Foto+3",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Condominio+Vivare+Foto+4"
+                ]
+            },
+            "casa-de-praia": {
+                title: "Casa de Praia Exclusiva",
+                subtitle: "Luxo e sofisticação à beira-mar em Santa Catarina.",
+                name: "Casa de Praia Exclusiva",
+                location: "Santa Catarina",
+                price: "R$ 5.800.000",
+                area: "500m²",
+                bedrooms: "5 suítes",
+                bathrooms: "6 banheiros",
+                garage: "6 vagas",
+                description: "Magnífica casa de praia na deslumbrante costa de Santa Catarina. Com 5 suítes, a propriedade oferece um estilo de vida de luxo com total privacidade. A casa possui piscina, área gourmet, sauna e uma vista deslumbrante para o mar. Ideal para quem busca um refúgio de verão ou um lar permanente em um dos lugares mais bonitos do Brasil.",
+                features: [
+                    "Área construída: 500m²",
+                    "Terreno: 1000m²",
+                    "5 suítes",
+                    "Piscina com borda infinita",
+                    "Área gourmet",
+                    "Sauna",
+                    "Vista deslumbrante para o mar",
+                    "Acesso privativo à praia"
+                ],
+                images: [
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Casa+de+Praia+Foto+1",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Casa+de+Praia+Foto+2",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Casa+de+Praia+Foto+3",
+                    "https://placehold.co/1200x800/15423b/ffffff?text=Casa+de+Praia+Foto+4"
+                ]
+            }
+        };
+
+        let currentImageIndex = 0;
+        let imageSources = [];
+
+        // Função para carregar os detalhes do imóvel
+        function loadPropertyDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const propertyId = urlParams.get('id');
+            const property = propertiesData[propertyId];
+
+            if (property) {
+                document.title = `Detalhes do Imóvel - ${property.name}`;
+                document.getElementById('property-title').textContent = property.title;
+                document.getElementById('property-subtitle').textContent = property.subtitle;
+                document.getElementById('property-name').textContent = property.name;
+                document.getElementById('property-price').textContent = property.price;
+                document.getElementById('property-location').textContent = property.location;
+                document.getElementById('property-area').textContent = property.area;
+                document.getElementById('property-bedrooms').textContent = property.bedrooms;
+                document.getElementById('property-bathrooms').textContent = property.bathrooms;
+                document.getElementById('property-garage').textContent = property.garage;
+                document.getElementById('property-description').textContent = property.description;
+
+                // Preenche a lista de recursos
+                const featuresList = document.getElementById('property-features');
+                featuresList.innerHTML = '';
+                property.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    featuresList.appendChild(li);
+                });
+
+                // Atualiza o link do WhatsApp
+                const whatsappLink = document.querySelector('.whatsapp-float');
+                whatsappLink.href = `https://wa.me/5551985599264?text=Olá, tenho interesse no imóvel ${property.name} (${property.price}) e gostaria de mais informações ou agendar uma visita.`;
+
+                // Configura a galeria de imagens
+                imageSources = property.images;
+                currentImageIndex = 0;
+                updateMainImageAndThumbnails();
+            } else {
+                // Redireciona ou exibe mensagem de erro se o imóvel não for encontrado
+                document.getElementById('property-details').innerHTML = '<h2>Imóvel não encontrado.</h2><p>Por favor, verifique o link e tente novamente.</p>';
+            }
+        }
+
+        // Função para atualizar a imagem principal e as miniaturas
+        function updateMainImageAndThumbnails() {
+            const mainImage = document.getElementById('main-property-image');
+            const thumbnailsContainer = document.getElementById('image-thumbnails');
+            
+            mainImage.src = imageSources[currentImageIndex];
+            
+            thumbnailsContainer.innerHTML = '';
+            imageSources.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `Thumbnail ${index + 1}`;
+                img.classList.add('thumbnail');
+                if (index === currentImageIndex) {
+                    img.classList.add('active');
+                }
+                img.onclick = () => changeMainImage(index);
+                thumbnailsContainer.appendChild(img);
+            });
+        }
+        
+        // Função para mudar a imagem principal clicando nas miniaturas
+        function changeMainImage(index) {
+            currentImageIndex = index;
+            updateMainImageAndThumbnails();
+        }
+
+        // Função para navegar pelas imagens (clicando nas setas)
+        function navigateImages(direction) { // direction: -1 para esquerda, 1 para direita
+            currentImageIndex += direction;
+
+            if (currentImageIndex < 0) {
+                currentImageIndex = imageSources.length - 1; // Volta para a última imagem
+            } else if (currentImageIndex >= imageSources.length) {
+                currentImageIndex = 0; // Volta para a primeira imagem
+            }
+            updateMainImageAndThumbnails();
+        }
+
+        // Funções para o lightbox
+        function openLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.src = imageSources[currentImageIndex];
+            lightbox.style.display = "flex";
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = "none";
+        }
+        
+        // Navegação do lightbox
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        const lightboxImage = document.getElementById('lightbox-image');
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation(); // Impede que o clique feche a lightbox
+            currentImageIndex--;
+            if (currentImageIndex < 0) {
+                currentImageIndex = imageSources.length - 1;
+            }
+            lightboxImage.src = imageSources[currentImageIndex];
+            updateMainImageAndThumbnails(); // Sincroniza a galeria principal
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation(); // Impede que o clique feche a lightbox
+            currentImageIndex++;
+            if (currentImageIndex >= imageSources.length) {
+                currentImageIndex = 0;
+            }
+            lightboxImage.src = imageSources[currentImageIndex];
+            updateMainImageAndThumbnails(); // Sincroniza a galeria principal
+        });
+
+        // Inicializa a página ao carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPropertyDetails();
+            
+            // Script para o header que encolhe ao rolar
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('mainHeader');
+                if (window.scrollY > 0) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Script para o menu mobile
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // Envia o formulário de contato (apenas para simulação)
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Mensagem enviada com sucesso! Em breve, Elisandra entrará em contato.');
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>

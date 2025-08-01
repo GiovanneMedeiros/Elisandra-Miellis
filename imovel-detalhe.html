@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Imóvel - Mansão de Luxo - Elisandra Miellis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link para o arquivo CSS externo (o mesmo style.css) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="mainHeader">
+        <!-- Logo da Corretora agora é um link para a página inicial -->
+        <a href="index.html">
+            <img src="logo.png" alt="Elisandra Miellis - Imóveis de Alto Padrão" class="header-logo">
+        </a>
+        <nav>
+            <a href="index.html#home">Início</a>
+            <a href="index.html#sobre">Sobre Mim</a>
+            <a href="index.html#imoveis">Propriedades</a>
+            <a href="index.html#depoimentos">Depoimentos</a>
+            <a href="index.html#contato">Contato</a>
+            <a href="mais-opcoes.html">Mais Imóveis</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-small">
+            <div class="hero-content">
+                <h1>Maravilhosa Fazenda-Sítio privativa</h1>
+                <p>Oportunidade única para viver com luxo e privacidade.</p>
+            </div>
+        </section>
+
+        <section id="property-details" class="container">
+            <div class="property-detail-card">
+                <div class="image-gallery">
+                    <img src="fazenda-sitio/thumbnail.png" alt="Imagem Principal do Imóvel" id="main-property-image" onclick="openLightbox()">
+                    <div class="gallery-arrow left-arrow" onclick="navigateImages(-1)">&#10094;</div>
+                    <div class="gallery-arrow right-arrow" onclick="navigateImages(1)">&#10095;</div>
+                    <div class="thumbnails">
+                        <img src="fazenda-sitio/primeira.png" alt="Thumbnail 1" class="thumbnail active" data-index="0" onclick="changeMainImage(this)">
+                        <img src="fazenda-sitio/segunda.png" alt="Thumbnail 2" class="thumbnail" data-index="1" onclick="changeMainImage(this)">
+                        <img src="fazenda-sitio/terceira.png" alt="Thumbnail 3" class="thumbnail" data-index="2" onclick="changeMainImage(this)">
+                        <img src="fazenda-sitio/quarta.png" alt="Thumbnail 4" class="thumbnail" data-index="3" onclick="changeMainImage(this)">
+                        <img src="fazenda-sitio/piscina+1.png" alt="Thumbnail 5" class="thumbnail" data-index="4" onclick="changeMainImage(this)">
+                        <img src="fazenda-sitio/banheiro1.png" alt="Thumbnail 6" class="thumbnail" data-index="5" onclick="changeMainImage(this)">
+                </div>
+            </div>
+
+                <div class="property-info-details">
+                    <h2>Fazenda-Sítio</h2>
+                    <p class="price">R$ 3.000.000</p>
+                    <p class="location-detail">Localização: Águas Claras, Viamão - RS</p>
+
+                    <h3>Características Principais</h3>
+                    <ul class="features-list">
+                        <li>3 espaçosos quartos,sendo um suíte</li>
+                        <li>casa de hóspedes com dois confortáveis quartos</li>
+                        <li>10 Vagas de Garagem</li>
+                        <li>Área total: 30.000m²</li>
+                        <li> piscina refrescante, uma luxuosa jacuzzi e uma sauna</li>
+                        <li> estábulo para criação de cavalos</li>
+                    </ul>
+
+                    <h3>Descrição do Imóvel</h3>
+                    <p>Esta magnífica chácara de 30.000 m² está localizada em Águas Claras, Viamão (RS), e oferece uma combinação única de conforto, natureza e sofisticação. A casa principal possui 3 quartos, sendo 1 suíte, enquanto a casa de hóspedes conta com 2 quartos, todos climatizados. A ampla sala de estar se integra a um jardim exuberante, e o salão de festas para mais de 100 convidados se conecta a uma bela piscina, jacuzzi e sauna com parede de vidro, tudo com projeto assinado por equipe espanhola.</p>
+                    <p>Além disso, a propriedade conta com estábulo para cavalos, açude, poço artesiano de 140 metros com água de qualidade e diversas criações como suínos, ovelhas, aves e peixes, oferecendo a experiência de uma microfazenda. A garagem acomoda até 10 veículos (3 cobertos), com acessibilidade e praticidade garantidas. Localizada próxima ao pedágio na Estrada das Laranjeiras, une a paz do campo à facilidade de acesso à cidade — perfeita para quem busca viver com luxo, tranquilidade e contato com a natureza.</p>
+
+                    <h3>Localização</h3>
+                    <p>O imóvel está localizado num dos bairros mais valorizados de Viamão, com fácil acesso a escolas de renome, centros comerciais, restaurantes e áreas de lazer. A proximidade com a natureza e a tranquilidade do condomínio oferecem o equilíbrio perfeito entre o urbano e o rural.</p>
+                    <!-- O mapa de localização foi removido daqui -->
+                </div>
+            </div>
+
+            <section id="contact-property" class="container contact-form-section">
+                <h2>Interessado neste Imóvel?</h2>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Preencha o formulário abaixo e entrarei em contacto para agendar uma visita ou fornecer mais informações.</p>
+                <form id="propertyContactForm">
+                    <label for="prop-name">Nome Completo:</label>
+                    <input type="text" id="prop-name" name="name" required>
+
+                    <label for="prop-email">E-mail:</label>
+                    <input type="email" id="prop-email" name="email" required>
+
+                    <label for="prop-phone">Telefone (opcional):</label>
+                    <input type="tel" id="prop-phone" name="phone">
+
+                    <label for="prop-message">Mensagem de Interesse:</label>
+                    <textarea id="prop-message" name="message" rows="6" required>Tenho interesse na Mansão Exclusiva com Vista Panorâmica (R$ 12.500.000) e gostaria de mais informações ou agendar uma visita.</textarea>
+
+                    <button type="submit">Enviar Solicitação</button>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Elisandra Miellis - Imóveis de Alto Padrão. Todos os direitos reservados.</p>
+        <p>CRECI: 59065-F | Telefone: (51) 98559-9264 | E-mail: elisandradarosa1981@gmail.com</p>
+            <div class="social-links">
+            <a href="#" target="_blank" title="facebook"><img src="facebook.png" alt="LinkedIn"></a>
+            <a href="#" target="_blank" title="Instagram"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="https://wa.me/55DDDISEUNUMERO" class="whatsapp-float" target="_blank" title="Fale comigo no WhatsApp">
+        &#x1F4AD; <!-- Ícone de balão de fala para WhatsApp -->
+    </a>
+        <!-- A Lightbox (escondida por padrão) -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="">
+            <button class="lightbox-arrow left" onclick="navigateLightboxImages(-1)">&#10094;</button>
+            <button class="lightbox-arrow right" onclick="navigateLightboxImages(1)">&#10095;</button>
+        </div>
+    </div>
+    <!-- Custom Message Box -->
+    <div id="messageBox" class="message-box"></div>
+
+    <script>
+        // Array com as URLs das imagens da galeria
+        const imageSources = [
+           'https://static.orulo.com.br/images/properties/large/2118414.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118464.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118465.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118463.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118462.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118461.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118460.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118459.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118458.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118457.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118456.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118455.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118454.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118453.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118452.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118451.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118450.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118449.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118473.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118481.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118480.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118479.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118478.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118477.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118476.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118475.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118474.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118448.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118472.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118471.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118470.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118469.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118468.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118467.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118466.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118422.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118430.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118429.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118428.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118427.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118426.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118425.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118424.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118423.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118431.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118421.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118420.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118419.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118418.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118417.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118416.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118415.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118447.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118432.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118433.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118434.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118435.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118436.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118437.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118438.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118439.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118440.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118441.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118442.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118443.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118444.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118445.jpeg',
+            'https://static.orulo.com.br/images/properties/large/2118446.jpeg',
+        ];
+        let currentImageIndex = 0;
+        const mainImage = document.getElementById('main-property-image');
+        // O `thumbnail-gallery` não existia no HTML, então a lógica foi ajustada para buscar as miniaturas pelo seletor de classe.
+        const thumbnails = document.querySelectorAll('.thumbnails .thumbnail');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCloseBtn = document.querySelector('.lightbox-close');
+        const lightboxLeftArrow = document.querySelector('.lightbox-arrow.left');
+        const lightboxRightArrow = document.querySelector('.lightbox-arrow.right');
+
+        // Função para atualizar a imagem principal e a miniatura ativa
+        function updateMainImageAndThumbnails() {
+            mainImage.src = imageSources[currentImageIndex];
+            
+            // Remove a classe 'active' de todas as miniaturas
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+
+            // Adiciona a classe 'active' à miniatura correspondente
+            if (thumbnails.length > 0) {
+                thumbnails[currentImageIndex].classList.add('active');
+                }
+        }
+        
+        // Função para trocar a imagem principal da galeria (clicando na miniatura)
+        function changeMainImage(thumbnail) {
+            currentImageIndex = parseInt(thumbnail.dataset.index);
+            updateMainImageAndThumbnails();
+        }
+
+        // Função para navegar pelas imagens (clicando nas setas da galeria principal)
+        function navigateImages(direction) { // direction: -1 para esquerda, 1 para direita
+            currentImageIndex += direction;
+
+            if (currentImageIndex < 0) {
+                currentImageIndex = imageSources.length - 1; // Volta para a última imagem
+            } else if (currentImageIndex >= imageSources.length) {
+                currentImageIndex = 0; // Volta para a primeira imagem
+            }
+            updateMainImageAndThumbnails();
+        }
+
+        // --- Lógica da Lightbox ---
+        // Função para abrir a lightbox
+        function openLightbox() {
+            lightbox.style.display = 'flex';
+            lightboxImage.src = imageSources[currentImageIndex];
+        }
+
+        // Função para fechar a lightbox
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        // Função para navegar nas imagens da lightbox
+        function navigateLightboxImages(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = imageSources.length - 1;
+            } else if (currentImageIndex >= imageSources.length) {
+                currentImageIndex = 0;
+            }
+            lightboxImage.src = imageSources[currentImageIndex];
+        }
+
+        // Adiciona event listeners para a lightbox
+        if (lightboxCloseBtn) {
+            lightboxCloseBtn.addEventListener('click', closeLightbox);
+        }
+        
+        if (lightbox) {
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+        }
+        
+        // Adiciona event listeners para as setas da lightbox
+        if (lightboxLeftArrow) {
+            lightboxLeftArrow.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigateLightboxImages(-1);
+            });
+        }
+        
+        if (lightboxRightArrow) {
+            lightboxRightArrow.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigateLightboxImages(1);
+            });
+        }
+
+        // Função para mostrar mensagens (sucesso/erro)
+        function showMessage(msg, type) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = msg;
+            messageBox.className = `message-box ${type} show`;
+            setTimeout(() => {
+                messageBox.className = 'message-box'; // Esconde após 5 segundos
+            }, 5000);
+        }
+
+        // Lógica do formulário
+        document.getElementById('propertyContactForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const form = event.target;
+            const formData = {
+                name: form.name.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                message: form.message.value
+            };
+
+            try {
+                // Simula uma resposta de sucesso
+                const response = await new Promise(resolve => setTimeout(() => resolve({
+                    ok: true,
+                    json: () => Promise.resolve({ message: "Sua solicitação sobre o imóvel foi enviada com sucesso! Em breve entrarei em contato." })
+                }), 1000));
+
+                if (response.ok) {
+                    const data = await response.json();
+                    showMessage(data.message, 'success');
+                    form.reset(); // Limpa o formulário
+                    // Preenche a mensagem padrão novamente após o reset
+                    document.getElementById('prop-message').value = "Tenho interesse na Fazenda-Sítio em Águas Claras, Viamão (R$ 3.000.000) e gostaria de mais informações ou agendar uma visita.";
+                } else {
+                    const errorData = await response.json();
+                    showMessage(errorData.message || "Erro ao enviar solicitação. Por favor, tente novamente.", 'error');
+                }
+            } catch (error) {
+                console.error('Erro ao enviar o formulário:', error);
+                showMessage("Não foi possível enviar a solicitação. Verifique sua conexão e tente novamente.", 'error');
+            }
+        });
+
+        // Inicializa a galeria ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            updateMainImageAndThumbnails(); // Garante que a primeira imagem e miniatura estejam ativas
+            const whatsappLink = document.querySelector('.whatsapp-float');
+            // Substitua 'DDDISEUNUMERO' pelo seu DDD e número de telefone, ex: 11999999999
+            whatsappLink.href = 'https://wa.me/5511999999999'; // Exemplo: Substitua pelo seu número
+        });
+
+        // Script para o header que encolhe ao rolar
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 120) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

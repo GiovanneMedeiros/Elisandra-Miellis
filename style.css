@@ -1,0 +1,1215 @@
+/* style.css */
+
+:root {
+    /* Definindo variáveis CSS para cores e espaçamentos base (inspiradas no site de referência) */
+    --primary-dark: #15423b; /* Cor principal escura (agora verde-azulado) */
+    --secondary-dark: #15423b; /* Um tom ligeiramente mais claro de cinza escuro (agora verde-azulado) */
+    --accent-gold: #D4AF37; /* Dourado para destaque */
+    --text-light: #f0f0f0; /* Texto claro para fundos escuros */
+    --text-dark: #333333; /* Texto escuro para fundos claros */
+    --white: #ffffff;
+    --light-bg: #f9f9f9; /* Fundo para seções de conteúdo */
+
+    /* Base font size for responsive scaling */
+    font-size: 16px; /* Base para rem */
+    --new-body-bg: #f5f5f5; /* Um cinza muito claro, mais suave que o branco puro */
+    --new-section-bg: #fdfdfd; /* Um branco quase puro, mas com uma leve tonalidade */
+}
+
+body {
+   font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Alterado para gradiente com faixa dourada no meio e branco embaixo */
+    background: linear-gradient(to bottom, var(--primary-dark) 40%, var(--accent-gold) 40%, var(--accent-gold) 60%, var(--white) 60%);
+    background-attachment: fixed; /* Para que o gradiente cubra toda a altura da viewport */
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Typography for headings */
+h2, h3 {
+    font-family: 'Playfair Display', serif; /* Mantendo a fonte serifada para luxo */
+    color: #15423b;
+    font-size: 40px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.titulo{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    
+}
+
+header {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    display: flex;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: space-between; /* Logo à esquerda, navegação à direita */
+    align-items: center;
+    position: sticky;
+    top: 10;
+    z-index: 100;
+    transition: max-height 1s ease-in-out, padding 1.25s ease-in-out, box-shadow 1.25s ease-in-out;
+    overflow: hidden;
+    max-height: 75px; /* Altura se ajusta ao conteúdo */
+    padding: 0px 20px 0px 0px;
+}
+
+.header-logo {
+    max-width: 120px; /* Tamanho da logo ajustado para o header inicial */
+    height: auto;
+    transition: max-height 1s ease-in-out, padding 1.25s ease-in-out, box-shadow 1.25s ease-in-out;
+}
+
+/* Oculta o parágrafo no header, conforme o modelo */
+header p {
+    display: none;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem; /* Espaçamento entre os links da navegação */
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar {
+  width: 100%;
+  overflow: hidden; /* Evita barras de rolagem */
+  box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
+  overflow-y: hidden; /* Remove rolagem vertical */
+  white-space: nowrap; /* Evita quebra de linha nos itens */
+}
+
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    padding-bottom: 0.3125rem;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0.125rem;
+    background: var(--accent-gold);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: var(--accent-gold);
+    transform: translateY(-0.125rem);
+}
+
+/* Estilos para o header quando a tela é rolada */
+header.scrolled {
+    padding: 0.5rem 2rem; /* Padding menor quando encolhido */
+    height: 60px; /* Altura fixa para o header encolhido */
+    box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.3);
+}
+
+header.scrolled .header-logo {
+    max-width: 120px; /* Logo menor quando rolado */
+}
+
+header.scrolled nav {
+    gap: 1rem; /* Espaçamento menor entre links quando rolado */
+}
+
+header.scrolled nav a {
+    font-size: 0.9rem; /* Fonte ligeiramente menor nos links quando rolado */
+}
+
+
+.container {
+    max-width: 68.75rem; /* 1100px / 16px = 68.75rem */
+    margin: 0 auto;
+    padding: 3rem;
+    
+}
+
+section {
+    background-color:var(--new-section-bg); /* Alterado para o novo fundo das seções */
+    padding: 4rem;
+    margin-bottom: 3rem;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0.5rem 1.875rem rgba(10,10,0,10.10); /* Sombra mais suave */
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 5rem;
+    height: 0.1875rem;
+    background: var(--accent-gold);
+    bottom: -0.625rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.125rem;
+}
+
+.hero {
+    padding: 10rem 2rem; /* Mais padding para impacto */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.pinimg.com/736x/8a/e9/97/8ae997d72d7d8e369a575ff70895239e.jpg') center/cover repeat; /* Imagem de fundo com overlay */
+    color: var(--white);
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
+    margin-bottom: 0;
+}
+.heroback{
+    padding: 10rem 2rem;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://wallpapers.com/images/featured-full/casa-moderna-vvnk7t1eu7sj0q4w.jpg') center/cover repeat;
+    border-radius: 0;
+    box-shadow: 50px 50px 50px;
+    text-align: center;
+    margin-bottom: 0;
+
+}
+
+.hero-content{
+    color: white;
+    
+}
+.hero h1 {
+    font-size: 4.5rem; /* Título principal maior */
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero p {
+    font-size: 1.6rem;
+    color: var(--text-light);
+    max-width: 56.25rem;
+    margin: 0 auto 3rem;
+    font-weight: 300;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+    padding: 1.2rem 3rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark); /* Inverte as cores no hover */
+    color: var(--accent-gold);
+    transform: translateY(-0.1875rem);
+    box-shadow: 0 0.375rem 1.25rem rgba(0,0,0,0.3);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+}
+
+.profile-photo {
+    max-width: 25rem;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.375rem 0.9375rem rgba(0,0,0,0.15);
+    border: 0.1875rem solid var(--accent-gold);
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.about-text {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    color: var(--gray-medium);
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2.5rem;
+    text-align: left;
+}
+
+.property-card {
+    border: 0.0625rem solid #eee;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    box-shadow: 0 0.375rem 1.25rem rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--new-section-bg); /* Alterado para o novo fundo dos cards */
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+}
+
+.property-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.property-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer; /* Adicionado: Indica que a imagem é clicável */
+}
+
+.property-card:hover .property-main-image {
+    transform: scale(1.05);
+}
+
+.property-info {
+    padding: 1.5rem;
+}
+
+.property-info h3 {
+    margin-top: 0;
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.property-info p {
+    margin: 0.5rem 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.property-info .price {
+    font-weight: 700;
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    display: block;
+}
+
+/* Testimonials Section */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.testimonial-card {
+    background-color: var(--white); /* Fundo branco para depoimentos */
+    padding: 2.5rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0,0,0,0.08);
+    border-left: 0.3125rem solid var(--accent-gold);
+    font-style: italic;
+    color: var(--gray-medium);
+}
+
+.testimonial-card p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.testimonial-card .client-name {
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Contact Form */
+form {
+   max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--new-section-bg); /* Alterado para o novo fundo dos formulários */
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.05);
+}
+
+
+form label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 0.1875rem rgba(212, 175, 55, 0.3);
+    outline: none;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 7.5rem;
+}
+
+form button {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0,0,0,0.2);
+    align-self: center;
+    margin-top: 1rem;
+}
+
+form button:hover {
+    background-color: var(--primary-dark);
+    color: var(--accent-gold);
+    transform: translateY(-0.1875rem);
+    box-shadow: 0 0.375rem 1.25rem rgba(0,0,0,0.3);
+}
+
+footer {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 3rem;
+    box-shadow: 0 -0.125rem 0.625rem rgba(0,0,0,0.2);
+}
+
+footer p {
+    margin: 0.8rem 0;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.social-links {
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 0.625rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-0.3125rem);
+}
+
+.social-links img {
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    padding: 0.3125rem;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 1.875rem;
+    right: 1.875rem;
+    background-color: #25d366; /* Cor do WhatsApp */
+    color: var(--white);
+    width: 4.0625rem;
+    height: 4.0625rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    text-decoration: none;
+    box-shadow: 0 0.375rem 0.9375rem rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.15);
+    background-color: #1da851;
+}
+
+/* Custom Message Box */
+.message-box {
+    position: fixed;
+    top: 1.875rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.125rem 1.875rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.375rem 1.25rem rgba(0,0,0,0.2);
+    z-index: 1000;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    min-width: 18.75rem;
+    text-align: center;
+}
+
+.message-box.show {
+    opacity: 1;
+}
+
+.message-box.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 0.0625rem solid #c3e6cb;
+}
+
+.message-box.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 0.0625rem solid #f5c6cb;
+}
+
+/* Estilos para o menu hambúrguer */
+.hamburger-menu {
+    display: none; /* Oculto por padrão em telas maiores */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1100; /* Acima do header */
+    position: absolute; /* Posicionamento absoluto dentro do header */
+    right: 1.5rem; /* Distância da direita */
+    top: 50%; /* Centralizado verticalmente */
+    transform: translateY(-50%); /* Ajuste para centralização perfeita */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação do menu hambúrguer quando aberto */
+.hamburger-menu.open span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger-menu.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Estilos da barra lateral (sidebar) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px; /* Escondida fora da tela */
+    width: 250px; /* Largura da barra lateral */
+    height: 100%;
+    background-color: var(--primary-dark);
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    z-index: 1050; /* Acima do conteúdo, abaixo do menu hambúrguer */
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px; /* Espaço para não colidir com o header */
+}
+
+.sidebar.open {
+    right: 0; /* Mostra a barra lateral */
+}
+
+.sidebar nav {
+    flex-direction: column; /* Links da navegação em coluna */
+    width: 100%;
+    margin-top: 0;
+    gap: 0; /* Remove o gap entre os links */
+}
+
+.sidebar nav a {
+    padding: 1rem 1.5rem; /* Padding para os links da sidebar */
+    margin: 0; /* Remove margens laterais */
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separador entre links */
+}
+
+.sidebar nav a:last-child {
+    border-bottom: none;
+}
+
+/* Overlay de fundo */
+.overlay {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparente */
+    z-index: 1040; /* Abaixo da sidebar */
+}
+
+.overlay.show {
+    display: block; /* Mostra o overlay */
+}
+
+/* Estilos para a secção de filtros */
+.filter-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    background-color: var(--light-bg);
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0,0,0,0.05);
+    margin-bottom: 3rem;
+    align-items: flex-end; /* Alinha os itens na parte inferior */
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.filter-section input[type="text"],
+.filter-section input[type="number"],
+.filter-section select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-section input[type="text"]:focus,
+.filter-section input[type="number"]:focus,
+.filter-section select:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 0.1875rem rgba(212, 175, 55, 0.3);
+    outline: none;
+}
+
+.filter-button {
+    width: auto; /* Ajusta a largura do botão */
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    align-self: flex-end; /* Alinha o botão na parte inferior */
+}
+
+/* Estilos para Paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0,0,0,0.05);
+}
+
+.pagination .page-link {
+    display: inline-block;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+    color: var(--primary-dark);
+    background-color: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 0.4rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+}
+
+.pagination .page-link.active {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border-color: var(--primary-dark);
+    cursor: default;
+}
+
+.pagination .page-link.active:hover {
+    transform: none; /* Remove o efeito de hover para a página ativa */
+}
+
+/* Estilos para a página de detalhes do imóvel */
+.hero-small {
+    padding: 4rem 2rem; /* Menor padding para o hero de página de detalhes */
+    background-image: url('fundo\ tela.jpg');
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-size: cover; /* Ajusta a imagem para cobrir todo o elemento */
+    background-position: center; /* Centraliza a imagem */
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px; /* Altura mínima para o hero pequeno */
+}
+
+.hero-small .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente para o texto */
+    border-radius: 0.5rem;
+}
+
+.hero-small h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-light);
+    text-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.5);
+}
+
+.hero-small p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    text-shadow: 0 0.0625rem 0.125rem rgba(0,0,0,0.5);
+}
+
+/* Property Detail Page Specific Styles */
+.property-detail-card {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    gap: 2.5rem;
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.05);
+    margin-top: 2rem;
+}
+
+.image-gallery {
+    flex: 2; /* Ocupa mais espaço */
+    min-width: 300px; /* Garante que não fique muito pequeno */
+    position: relative; /* Para posicionar as setas */
+    height: 400px; /* Adicionado: Altura explícita para o contêiner da galeria */
+    margin-bottom: 1rem; /* Adicionado: Espaçamento abaixo da galeria */
+}
+
+#main-property-image {
+    width: 100%;
+    height: 100%; /* Ajustado: Imagem preenche 100% da altura do contêiner */
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.1);
+    /* margin-bottom: 1rem; Removido: Movido para .image-gallery */
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    user-select: none; /* Impede seleção de texto */
+    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 10; /* Adicionado para garantir que as setas fiquem sobre a imagem */
+}
+
+.gallery-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.gallery-arrow.left-arrow {
+    left: 10px;
+}
+
+.gallery-arrow.right-arrow {
+    right: 10px;
+}
+
+.thumbnails {
+    display: flex; /* Faz as miniaturas ficarem lado a lado */
+    flex-wrap: wrap; /* Permite que quebrem a linha se não houver espaço */
+    justify-content: center; /* Centraliza as miniaturas */
+    gap: 0.75rem; /* Espaçamento entre as miniaturas */
+    margin-top: 1rem;
+}
+
+.thumbnail {
+    width: 6rem; /* 96px */
+    height: 4rem; /* 64px */
+    object-fit: cover;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    border: 2px solid transparent; /* Borda transparente padrão */
+    transition: all 0.2s ease;
+}
+
+.thumbnail.active {
+    border-color: var(--primary-dark); /* Borda ativa */
+    box-shadow: 0 0 0 2px var(--primary-dark); /* Sombra para destaque */
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-gold);
+}
+
+.property-info-details {
+    flex: 3; /* Ocupa mais espaço que a galeria */
+    min-width: 300px;
+}
+
+.property-info-details h2 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    text-align: left; /* Alinha o título à esquerda */
+}
+
+.property-info-details .price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.property-info-details .location-detail {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.property-info-details h3 {
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: left; /* Alinha o subtítulo à esquerda */
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 colunas em telas maiores */
+    gap: 0.75rem;
+}
+
+.features-list li {
+    background-color: var(--light-bg);
+    padding: 0.8rem 1rem;
+    border-radius: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    border: 1px solid #D4AF37;
+    box-shadow: 0 0.5rem 1.875rem rgba(10, 10, 0, 10.10);
+}
+
+.property-info-details p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* Contact Form Section on Detail Page */
+.contact-form-section h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.625rem; /* 10px */
+}
+
+.contact-form-section h2::after {
+    content: '';
+    position: absolute;
+    width: 5rem; /* 80px */
+    height: 0.1875rem; /* 3px */
+    background-color: var(--accent-gold);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.1875rem; /* 3px */
+}
+
+/* --- Estilos para a Lightbox --- */
+.lightbox {
+    display: none; /* Inicia escondida */
+    position: fixed;
+    z-index: 2000; /* Garante que fique acima de todo o conteúdo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo preto semi-transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox-image {
+    max-width: 100%;
+    max-height: 100vh;
+    display: block;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: var(--white);
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    /* NOVO: Efeito de hover */
+    cursor: pointer;
+
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: var(--white);
+    border: none;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+    /* NOVO: Efeito de hover */
+    cursor: pointer;
+}
+
+.lightbox-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.lightbox-arrow.left {
+    left: -50px;
+}
+
+.lightbox-arrow.right {
+    right: -50px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .container {
+        padding: 1.5rem;
+    }
+    .property-detail-card {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-gallery,
+    .property-info-details {
+        min-width: unset;
+        width: 100%;
+    }
+    #main-property-image {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 5%;
+    }
+    .header-logo {
+        max-width: 100px;
+    }
+    .header-text {
+        font-size: 0.8rem;
+    }
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 0.85rem;
+    }
+    .hero {
+        padding: 4rem 1rem;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .btn-primary {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    section {
+        padding: 2rem 1rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-photo {
+        max-width: 150px;
+    }
+    .about-text {
+        font-size: 0.9rem;
+    }
+    .property-info {
+        padding: 1rem;
+    }
+    .property-info h3 {
+        font-size: 1.1rem;
+    }
+    .property-info p {
+        font-size: 0.8rem;
+    }
+    .property-info .price {
+        font-size: 1rem;
+    }
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    form {
+        gap: 1rem;
+    }
+    form label {
+        font-size: 0.9rem;
+    }
+    form input, form textarea {
+        padding: 0.6rem;
+    }
+    form button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    footer {
+        padding: 1.5rem 0;
+    }
+    .whatsapp-float {
+        width: 3rem; /* 48px */
+        height: 3rem;
+        font-size: 1.6rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+    .hero-small h1 {
+        font-size: 2rem;
+    }
+    .hero-small p {
+        font-size: 0.9rem;
+    }
+    #main-property-image {
+        height: 250px;
+    }
+    .gallery-arrow {
+        padding: 0.5rem 0.8rem;
+        font-size: 1.5rem;
+    }
+    .thumbnails {
+        gap: 0.5rem;
+    }
+    .thumbnail {
+        width: 5rem; /* 80px */
+        height: 3.3rem; /* 53px */
+    }
+    .property-info-details h2 {
+        font-size: 1.8rem;
+    }
+    .property-info-details .price {
+        font-size: 1.5rem;
+    }
+    .property-info-details .location-detail {
+        font-size: 0.9rem;
+    }
+    .property-info-details h3 {
+        font-size: 1.4rem;
+    }
+    .features-list {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+    }
+    .features-list li {
+        font-size: 0.85rem;
+    }
+
+    .lightbox-arrow.left {
+        left: 10px;
+    }
+    .lightbox-arrow.right {
+        right: 10px;
+    }
+
+}
+@media (max-width: 480px) {
+    #mainHeader nav {
+        display: none;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 0.9rem;
+    }
+    .intro h2, .properties h2, .testimonials h2, .contact h2 {
+        font-size: 1.8rem;
+    }
+    .property-detail {
+        padding: 1rem;
+    }
+    .property-header-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .property-header-details h2 {
+        font-size: 1.3rem;
+    }
+    .property-header-details .price {
+        font-size: 1.1rem;
+    }
+    .contact-card {
+        padding: 1.5rem;
+    }
+    .whatsapp-float {
+        width: 3rem; /* 48px */
+        height: 3rem;
+        font-size: 1.6rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Celulares muito pequenos (até 320px) */
+@media (max-width: 320px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    .hero p {
+        font-size: 0.75rem;
+    }
+    .btn-primary {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+    .lightbox-arrow {
+        font-size: 2rem;
+    }
+    .lightbox-arrow.left {
+        left: 5px;
+    }
+    .lightbox-arrow.right {
+        right: 5px;
+    }
+    .hero-small h1 {
+        font-size: 2rem;
+    }
+    .hero-small p {
+        font-size: 0.9rem;
+    }
+    #main-property-image {
+        height: 250px;
+    }
+    .gallery-arrow {
+        padding: 0.5rem 0.8rem;
+        font-size: 1.5rem;
+    }
+    .lightbox-close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+}

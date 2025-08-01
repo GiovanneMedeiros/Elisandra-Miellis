@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mais Imóveis - Elisandra Miellis - Imóveis de Alto Padrão</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link para o arquivo CSS externo (o mesmo style.css) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="mainHeader">
+        <!-- Logo da Corretora agora é um link para a página inicial -->
+        <a href="index.html">
+            <img src="logo.png" alt="Elisandra Miellis - Imóveis de Alto Padrão" class="header-logo">
+        </a>
+        <nav>
+            <a href="index.html#home">Início</a>
+            <a href="index.html#sobre">Sobre Mim</a>
+            <a href="index.html#imoveis">Propriedades</a>
+            <a href="index.html#depoimentos">Depoimentos</a>
+            <a href="index.html#contato">Contato</a>
+            <a href="#mais-imoveis">Mais Imóveis</a> <!-- Link para esta própria página -->
+        </nav>
+    </header>
+
+    <main>
+        <section class="heroback" id="mais-imoveis-hero">
+            <!-- Vídeo de fundo para a seção hero -->
+            <video autoplay loop muted playsinline class="hero-video">
+                <!-- Substitua 'seu-video.mp4' pelo caminho do seu vídeo -->
+                <source href="https://pt.vecteezy.com/video/40567058-ai-gerado-3d-renderizacao-do-moderno-acolhedor-casa-com-piscina-e-estacionamento-para-venda-ou-renda-dentro-luxuoso-estilo-por-do-sol-com-lindo-ceu-luxo-casa-com-natacao-piscina-as-noite-3d-renderizacao">ai-gerado-3d-renderizacao-do-moderno-acolhedor-casa-com-piscina-e-estacionamento-para-venda-ou-renda-dentro-luxuoso-estilo-por-do-sol-com-lindo-ceu-luxo-casa-com-natacao-piscina-as-noite-3d-renderizacao Vídeos de arquivo por Vecteezy</a>
+                <!-- Imagem de fallback caso o vídeo não seja suportado ou não carregue -->
+                <img src="https://placehold.co/1920x1080/000000/ffffff?text=Fundo+de+Luxo" alt="Fundo de Luxo">
+            </video>
+            <div class="hero-content">
+                <h1 class="titulo">Explore Todas as Nossas Propriedades Exclusivas.</h1>
+                <p>Descubra o catálogo completo de imóveis de alto padrão, cuidadosamente selecionados para o seu estilo de vida e investimento.</p>
+            </div>
+        </section>
+
+        <section id="mais-imoveis" class="container">
+            <h2>Todas as Propriedades</h2>
+            <div class="properties-grid">
+                <!-- Exemplo de Imóvel de Luxo 1 -->
+                <div class="property-card">
+                    <div class="property-image-wrapper">
+                        <img src="https://placehold.co/600x400/a0a0a0/ffffff?text=Residencia+Moderna" alt="Residência Moderna" class="property-main-image">
+                    </div>
+                    <div class="property-info">
+                        <h3>Residência Moderna com Piscina Aquecida</h3>
+                        <p>4 Suítes | 6 Banheiros | 3 Vagas</p>
+                        <p>Design arrojado, automação residencial e área de lazer completa.</p>
+                        <p class="price">R$ 6.200.000</p>
+                    </div>
+                </div>
+                <!-- Exemplo de Imóvel de Luxo 2 -->
+                <div class="property-card">
+                    <div class="property-image-wrapper">
+                        <img src="https://placehold.co/600x400/a0a0a0/ffffff?text=Apartamento+Alto+Padrao" alt="Apartamento Alto Padrão" class="property-main-image">
+                    </div>
+                    <div class="property-info">
+                        <h3>Apartamento de Alto Padrão no Centro</h3>
+                        <p>3 Suítes | 4 Banheiros | 2 Vagas</p>
+                        <p>Acabamento de luxo, vista panorâmica e condomínio com infraestrutura completa.</p>
+                        <p class="price">R$ 3.800.000</p>
+                    </div>
+                </div>
+                <!-- Exemplo de Imóvel de Luxo 3 -->
+                <div class="property-card">
+                    <div class="property-image-wrapper">
+                        <img src="https://placehold.co/600x400/a0a0a0/ffffff?text=Casa+de+Campo" alt="Casa de Campo" class="property-main-image">
+                    </div>
+                    <div class="property-info">
+                        <h3>Casa de Campo com Lago Privativo</h3>
+                        <p>6 Quartos | 5 Banheiros | Amplo Terreno</p>
+                        <p>Refúgio na natureza, arquitetura rústica chic e muita privacidade.</p>
+                        <p class="price">Preço Sob Consulta</p>
+                    </div>
+                </div>
+                <!-- Exemplo de Imóvel de Luxo 4 -->
+                <div class="property-card">
+                    <div class="property-image-wrapper">
+                        <img src="https://placehold.co/600x400/a0a0a0/ffffff?text=Cobertura+Com+Jardim" alt="Cobertura com Jardim" class="property-main-image">
+                    </div>
+                    <div class="property-info">
+                        <h3>Cobertura com Jardim Suspenso e Vista</h3>
+                        <p>3 Suítes | 5 Banheiros | 3 Vagas</p>
+                        <p>Espaço gourmet, jacuzzi e área verde privativa no coração da cidade.</p>
+                        <p class="price">R$ 7.100.000</p>
+                    </div>
+                </div>
+                <!-- Exemplo de Imóvel de Luxo 5 -->
+                <div class="property-card">
+                    <div class="property-image-wrapper">
+                        <img src="https://placehold.co/600x400/a0a0a0/ffffff?text=Mansao+Praia" alt="Mansão na Praia" class="property-main-image">
+                    </div>
+                    <div class="property-info">
+                        <h3>Mansão de Praia com Acesso Exclusivo</h3>
+                        <p>5 Suítes | 6 Banheiros | 4 Vagas</p>
+                        <p>Pé na areia, piscina com borda infinita e vista deslumbrante do oceano.</p>
+                        <p class="price">Preço Sob Consulta</p>
+                    </div>
+                </div>
+                <!-- Exemplo de Imóvel de Luxo 6 -->
+                <div class="property-card">
+                    <div class="property-image-wrapper">
+                        <img src="https://placehold.co/600x400/a0a0a0/ffffff?text=Loft+Urbano" alt="Loft Urbano" class="property-main-image">
+                    </div>
+                    <div class="property-info">
+                        <h3>Loft Urbano com Design Industrial</h3>
+                        <p>1 Suíte | 2 Banheiros | 1 Vaga</p>
+                        <p>Pé direito duplo, ambientes integrados e localização privilegiada.</p>
+                        <p class="price">R$ 2.100.000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Elisandra Miellis - Imóveis de Alto Padrão. Todos os direitos reservados.</p>
+        <p>CRECI: 59065-F | Telefone: (51) 98559-9264 | E-mail: elisandradarosa1981@gmail.com</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/CorretoradeImoveisElisandraFernandes/" target="_blank" title="facebook"><img src="facebook.png" alt="facebook"></a>
+            <a href="https://www.instagram.com/corretoraelisandramiellis" target="_blank" title="Instagram"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="https://wa.me/5551985599264" class="whatsapp-float" target="_blank" title="Fale comigo no WhatsApp">
+        &#x1F4AD; <!-- Ícone de balão de fala para WhatsApp -->
+    </a>
+
+    <script>
+        // Atualizar o link do WhatsApp com o número correto
+        document.addEventListener('DOMContentLoaded', () => {
+            const whatsappLink = document.querySelector('.whatsapp-float');
+            // Substitua 'DDDISEUNUMERO' pelo seu DDD e número de telefone, ex: 11999999999
+            whatsappLink.href = 'https://wa.me/5551985599264'; // Exemplo: Substitua pelo seu número
+        });
+
+        // Script para o header que encolhe ao rolar
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            // O valor de 120 pixels é o ponto em que o cabeçalho começará a encolher.
+            // Você pode ajustar este valor para que a transição ocorra mais cedo ou mais tarde.
+            if (window.scrollY >0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
